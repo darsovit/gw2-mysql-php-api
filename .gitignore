@@ -1,2 +1,5 @@
 # Details specific to my use of API
 linkshell-variables.php
+
+# VIM swp file
+.*.swp
