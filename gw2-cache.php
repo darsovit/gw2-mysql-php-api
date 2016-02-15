@@ -74,10 +74,11 @@ class Gw2Cache
 
     function LoadItem($itemId)
     {
-		$result = $this->RunQuery("SELECT * FROM gw2_item WHERE id=".$itemId.";");
+		$result = $this->RunQuery("SELECT *,gw2_item_types.type_name as type FROM gw2_item INNER JOIN (gw2_item_rarity, gw2_item_types) ON (gw2_item.item_rarity=gw2_item_rarity.id AND gw2_item.item_type=gw2_item_types.id) WHERE gw2_item.id=".$itemId.";");
 		if ( null == $result ) return false;
 		$row = $result->fetch();
 		// should translate things back as appropriate
+
 		return $row;
     }
 
